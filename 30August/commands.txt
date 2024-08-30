@@ -144,3 +144,11 @@ db.recipes.findOneAndDelete(
   { name: "Vegetable Curry" }
 );
 
+
+
+//
+1. server
+2. router
+3. controller
+4. middleware
+5. model[database]
