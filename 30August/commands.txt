@@ -1,0 +1,43 @@
+Here's how you can use the $and, $not, $nor, and $or operators in MongoDB with a student collection:
+
+1. $and
+The $and operator is used to combine multiple conditions. It returns documents that match all the conditions.
+Find students who are older than 20 and have marks greater than or equal to 90.
+
+db.student.find({
+    $and: [
+        { age: { $gt: 20 } },
+        { marks: { $gte: 90 } }
+    ]
+})
+
+2. $not
+The $not operator inverts the effect of a query expression, returning documents that do not match the query expression.
+Find students who do not have a grade of "A++".
+db.student.find({
+    grade: { $not: { $eq: "A++" } }
+})
+
+
+3. $nor
+The $nor operator is similar to $and, but it returns documents that fail to match both conditions.
+
+Find students who do not have marks greater than 85 or are not older than 21.
+
+db.student.find({
+    $nor: [
+        { marks: { $gt: 85 } },
+        { age: { $gt: 21 } }
+    ]
+})
+
+4. $or
+The $or operator is used to combine multiple conditions, and it returns documents that match any of the conditions.
+Find students who have marks greater than or equal to 90 or are younger than 18.
+
+db.student.find({
+    $or: [
+        { marks: { $gte: 90 } },
+        { age: { $lt: 18 } }
+    ]
+})
