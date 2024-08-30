@@ -91,3 +91,56 @@ db.student.replaceOne(
 )
 
 
+TASK 2 [DELETE]
+
+
+
+// Insert documents into the 'recipes' collection
+db.recipes.insertMany([
+  {
+    "name": "Spaghetti Carbonara",
+    "cuisine": "Italian",
+    "type": "non-veg",
+    "ingredients": ["spaghetti", "eggs", "parmesan cheese", "bacon"],
+    "prepTime": 20
+  },
+  {
+    "name": "Vegetable Curry",
+    "cuisine": "Indian",
+    "type": "veg",
+    "ingredients": ["potatoes", "carrots", "peas", "curry powder"],
+    "prepTime": 30
+  },
+  {
+    "name": "Chicken Caesar Salad",
+    "cuisine": "American",
+    "type": "non-veg",
+    "ingredients": ["chicken breast", "romaine lettuce", "croutons", "Caesar dressing"],
+    "prepTime": 15
+  },
+  {
+    "name": "Sushi Rolls",
+    "cuisine": "Japanese",
+    "type": "non-veg",
+    "ingredients": ["sushi rice", "seaweed", "fish", "vegetables"],
+    "prepTime": 45
+  },
+  {
+    "name": "Quinoa Salad",
+    "cuisine": "Mediterranean",
+    "type": "veg",
+    "ingredients": ["quinoa", "cucumber", "tomatoes", "feta cheese"],
+    "prepTime": 25
+  }
+]);
+
+//deleteOne
+db.recipes.deleteOne({ name: "Chicken Caesar Salad" });
+
+
+db.recipes.deleteMany({ type: "non-veg" });
+
+db.recipes.findOneAndDelete(
+  { name: "Vegetable Curry" }
+);
+
