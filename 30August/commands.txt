@@ -41,3 +41,53 @@ db.student.find({
         { age: { $lt: 18 } }
     ]
 })
+
+Element Query Operators
+
+$exists
+The $exists operator is used to check whether a specified field exists in a document.
+Find students who have a grade field in their documents.
+
+db.student.find({
+    grade: { $exists: true }
+})
+
+
+$type
+The $type operator is used to select documents where the value of a field is of a specific type.
+Find students whose marks field is of type int (integer).
+
+db.student.find({
+    marks: { $type: "int" }
+})
+
+
+
+db.student.updateOne(
+    { name: "Hannah" },       
+    { $set: { grade: "A" } } 
+)
+
+//db.collection_name.updateMany(
+    {},                  
+    { $inc: { age: 1 } }
+)
+
+db.student.updateMany(
+    {}, 
+    { $set: { subject: "Maths" } }
+)
+
+db.student.findOneAndUpdate(
+    { name: "Frank" },            
+    { $set: { name: "Frank Frank" } }
+    
+)
+
+
+db.student.replaceOne(
+    { name: "Frank Frank" },    
+    { name: "Frank" }            
+)
+
+
